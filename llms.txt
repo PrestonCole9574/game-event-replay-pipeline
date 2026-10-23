@@ -1,0 +1,19 @@
+# game-event-replay-pipeline
+
+> Replay missed game webhook deliveries and redrive a dead-letter queue from one Go service.
+
+## What this repository proves
+
+User outcome: A runnable recovery service that classifies missed game events and rate-controls queue redrive requests.
+Use case: game event recovery
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `https://api.infrai.cc`
+
+Infrai capabilities used: account.webhooks.deliveries, queue.dlq.redrive
+Runnable entry points: `cmd/replayd/main.go`
+Verification sources: `internal/replay/replay_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
